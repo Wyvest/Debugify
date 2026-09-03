@@ -5,6 +5,7 @@
  */
 package dev.isxander.debugify.client.mixins.gameplay.mc231097;
 
+import dev.isxander.debugify.Debugify;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.Minecraft;
@@ -32,7 +33,7 @@ public abstract class LocalPlayerMixin {
 			)
 	)
 	private void onDropItem(boolean all, CallbackInfoReturnable<Boolean> cir) {
-		if (isUsingItem()) {
+		if (isUsingItem() && Debugify.isGameplayFixesEnabled()) {
 			minecraft.gameMode.releaseUsingItem((LocalPlayer) (Object) this);
 		}
 	}
