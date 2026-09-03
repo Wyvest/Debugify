@@ -33,7 +33,7 @@ public abstract class LocalPlayerMixin {
 			)
 	)
 	private void onDropItem(boolean all, CallbackInfoReturnable<Boolean> cir) {
-		if (isUsingItem() && Debugify.isGameplayFixesEnabled()) {
+		if (Debugify.isGameplayFixesEnabled() && isUsingItem()) {
 			minecraft.gameMode.releaseUsingItem((LocalPlayer) (Object) this);
 		}
 	}

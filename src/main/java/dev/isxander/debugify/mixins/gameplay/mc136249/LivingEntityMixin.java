@@ -27,6 +27,6 @@ public abstract class LivingEntityMixin{
 	@Expression("this.getAttributeValue(WATER_MOVEMENT_EFFICIENCY)")
 	@ModifyExpressionValue(method = "travelInWater", at = @At("MIXINEXTRAS:EXPRESSION"))
 	private double checkRiptide(double original) {
-		return this.isAutoSpinAttack() && Debugify.isGameplayFixesEnabled() ? 0 : original;
+		return Debugify.isGameplayFixesEnabled() && this.isAutoSpinAttack() ? 0 : original;
 	}
 }
